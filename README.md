@@ -1,65 +1,53 @@
-Open Location Code
+Rus Codes
 ==================
 
 [![Build Status](https://github.com/google/open-location-code/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/google/open-location-code/actions/workflows/main.yml?query=branch%3Amain)
 [![CDNJS](https://img.shields.io/cdnjs/v/openlocationcode.svg)](https://cdnjs.com/libraries/openlocationcode)
 
-Open Location Code is a technology that gives a way of encoding location into a form that is
-easier to use than latitude and longitude. The codes generated are called plus codes, as their
-distinguishing attribute is that they include a "+" character.
+Rus Codes -- это технология, которая позволяет представлять место в форме, которую легче использовать, чем широту и долготу. 
 
-The technology is designed to produce codes that can be used as a replacement for street addresses, especially
-in places where buildings aren't numbered or streets aren't named.
+Технология может быть использована для создания геокодов, заменяющих адреса, особенно в местах, где здания не нумерованы или нет названий улиц.
 
-Plus codes represent an area, not a point. As digits are added
-to a code, the area shrinks, so a long code is more precise than a short
-code.
+Геокод представляет область, а не точку. Чем больше символов в коде, тем уже область. Т.е. чем длиннее код, тем точнее зашифрованное положение.
 
-Codes that are similar are located closer together than codes that are
-different.
+Коды, которые выглядят похожими, представляют области, которые ближе дргу к другу. Области разных кодов -- дальше.
 
-A location can be converted into a code, and a code can be converted back
-to a location completely offline.
+Геопозиция может быть переведена в код и код может быть переведен в геопозицию без использования интернета.
 
-There are no data tables to lookup or online services required. The
-algorithm is publicly available and can be used without restriction.
+Не используются какие либо словари или сервисы, только правила перевода.
 
-Links
+Ссылки
 -----
  * [Demonstration site](http://plus.codes/)
  * [Mailing list](https://groups.google.com/forum/#!forum/open-location-code)
  * [Comparison of existing location encoding systems](https://github.com/google/open-location-code/wiki/Evaluation-of-Location-Encoding-Systems)
- * [Open Location Code definition](https://github.com/google/open-location-code/blob/master/docs/olc_definition.adoc)
+ * [Rus Code определение](https://github.com/rus-codes/open-location-code/blob/master/docs/olc_definition.adoc)
 
-Description
+Описание
 -----------
 
-Codes are made up of a sequence of digits chosen from a set of 20. The
-digits in the code alternate between latitude and longitude. The first
-four digits describe a one degree latitude by one degree longitude
-area, aligned on degrees. Adding two further digits to the code,
-reduces the area to 1/20th of a degree by 1/20th of a degree within the
-previous area. And so on - each pair of digits reduces the area to
-1/400th of the previous area.
+Коды состевлены из последовательности символов из набора из 20-ти. Символы в коде
+чередуют широту и долготу. Первые четыре символа описывают площадь размером один градус широты на один градус
+долготы. Если добавить еще два символа, то область сузится до размера 1/20 градуса широты на 1/20 градус долготы
+внутри предыдущей площади. И так далее -- каждая пара символов уменьшает площадь на 1/400-ую от предыдущей области.
 
-As an example, the Parliament Buildings in Nairobi, Kenya are located at
-6GCRPR6C+24. 6GCR is the area from 2S 36E to 1S 37E. PR6C+24 is a 14 meter
-wide by 14 meter high area within 6GCR.
+Например здание МГУ в Москве, в России находиться по коду 8E6TOE2K+KA.
+9G7V -- область от 9G7V до 9G7V. OE2K+KA -- это площадь 14 метров в ширину и 14 метров в длину, внутри области 8E6T.
 
-A "+" character is used after eight digits, to break the code up into two parts
-and to distinguish codes from postal codes.
+Символ "+" ставиться после 8-ми символов, чтобы разделить код на 2 части. И улучшить восприятие.
 
-There will be locations where a 10 digit code is not sufficiently precise, but
-refining it by a factor of 20 is i) unnecessarily precise and ii) requires extending
-the code by two digits. Instead, after 10 digits, the area is divided
-into a 4x5 grid and a single digit used to identify the grid square. A single
-grid refinement step reduces the area to approximately 3.5x2.8 meters.
+Существуют области, где 10-ти значный код не достаточно точен, но уточнение его до 20-ой степени:
+1) без надобности точно
+2) требует удлиннения кода на 2 символа 
 
-Codes can be shortened relative to a location. This reduces the number of digits
-that must be remembered, by using a location to identify an approximate area,
-and then generating the nearest matching code. Shortening a code, if possible,
-will drop four or more digits from the start of the code. The degree to which a
-code can be shortened depends on the proximity of the reference location.
+Вместо этого, после 10-ти символов область делиться стекой размером 4x5 и один символ используется для определения квадрата этой сетки.
+Такое сужение уменьшает площадь области до примерно 3.5 на 2.8 метров.
+
+Код может быть укорочен с учетом относительного местоположения. Это уменьшает количество символов, необходимых к запомнинанию, используя
+местоположение, чтобы определить приблизительную область и потом генерируюя ближайший совпадающий код. Укорачивание кода, если возможно, 
+позволит сократить код на 4 или более симовлов сначала кода. Степень, до которой код может быть укорочен, зависит от близости связанного местоположения.
+
+
 
 If the reference location is derived from a town or city name, it is dependent
 on the accuracy of the geocoding service. Although one service may place
