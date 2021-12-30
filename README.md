@@ -21,7 +21,7 @@ Rus Codes -- это технология, которая позволяет пр
  * [Demonstration site](http://plus.codes/)
  * [Mailing list](https://groups.google.com/forum/#!forum/open-location-code)
  * [Comparison of existing location encoding systems](https://github.com/google/open-location-code/wiki/Evaluation-of-Location-Encoding-Systems)
- * [Rus Code определение](https://github.com/rus-codes/open-location-code/blob/master/docs/olc_definition.adoc)
+ * [Rus Code определение](https://github.com/rus-codes/rus-codes/blob/master/docs/olc_definition.adoc)
 
 Описание
 -----------
@@ -47,38 +47,32 @@ Rus Codes -- это технология, которая позволяет пр
 местоположение, чтобы определить приблизительную область и потом генерируюя ближайший совпадающий код. Укорачивание кода, если возможно, 
 позволит сократить код на 4 или более симовлов сначала кода. Степень, до которой код может быть укорочен, зависит от близости связанного местоположения.
 
+Если связанное местоположение взято из названия города, оно зависит от точности сервиса геокодинга. Так один сервис может расположить "Цурих"
+близко к офису Google, другой может подвинуть его на 100 метров или больше и это может быть достаточным, чтобы изначальный код не был восстановлен.
+Скорее чем использовать большие города для генерации связанного местоположениея, лучше использовать малые, "районные" достопримечатльности, у которыъ не будет такой вариативности в геокодировании.
+
+Инструкции для укорачивания кодов в [wiki](https://github.com/google/open-location-code/wiki).
+
+Восстановление укороченных кодов происходит за счет предоставления короткого кода и связанного местоположения.
+Связанное местополжение вовсе не обязательно должно быть тем же самым, которое использовалось для укорачивания кода,
+но оно должно быть рядом. Короткий код всегда содержит "+", благодаря этому не сложно вычислить отсутствующий компонент. 
 
 
-If the reference location is derived from a town or city name, it is dependent
-on the accuracy of the geocoding service. Although one service may place
-"Zurich" close to the Google office, another may move it by a hundred meters or
-more, and this could be enough to prevent the original code being recovered.
-Rather than a large city size feature to generate the reference location, it is
-better to use smaller, neighbourhood features, that will not have as much
-variation in their geocode results.
+ * в 7А+ЕЕ отсутствует 6 первых символов
+ * в 597А+Ее отсутствует 4 перых символа
 
-Guidelines for shortening codes are in the [wiki](https://github.com/google/open-location-code/wiki).
-
-Recovering shortened codes works by providing the short code and a reference
-location. This does not need to be the same as the location used to shorten the
-code, but it does need to be nearby. Shortened codes always include the "+"
-character so it is simple to compute the missing component.
-
- * 8F+GG is missing six leading characters
- * 6C8F+GG is missing four leading characters
-
-Example Code
+Пример кода
 ------------
 
-The subdirectories contain sample implementations and tests for different
-languages. Each implementation provides the following functions:
+Поддиректории содержат примеры кода и тесты для различных языков.
+Каждый код предоставляет следующие функции:
 
- * Test a code to see if it is a valid sequence
- * Test a code to see if it is a valid full code
-   Not all valid sequences are valid full codes
- * Encode a latitude and longitude to a standard accuracy
-   (14 meter by 14 meter) code
- * Encode a latitude and longitude to a code of any length
- * Decode a code to its coordinates: low, high and center
- * Shorten a full code relative to a location
- * Extend a short code relative to a location
+ * Тестовый код, чтобы проверить, что последовательность верная
+ * Тестовый код, чтобы проверить, что полный код верный
+   Не все верные последовательности -- верные полные коды
+ * Кодирует широту и долготу в код стандартной точности(14 метров на 14 метров)
+ * Кодирует широту и долготу в код произовльной длинны
+ * Переводит код в координаты. низ, верх и центр
+ * Соращает полных код отностительно местоположения
+ * Разворачивает короткий код отностеильно местоположения
+ 
