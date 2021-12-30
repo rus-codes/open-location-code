@@ -1,7 +1,9 @@
-= Open Location Code: An Open Source Standard for Addresses, Independent of Building Numbers And Street Names
+= Rus Codes: Стандарт для адресов, не зависящих от нумерации зданий и названий улиц
 :toc:
 :toc-placement: preamble
 :icons:
+
+Тимур Татаршаов
 
 Doug Rinckes, Google
 
