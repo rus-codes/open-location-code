@@ -4,7 +4,9 @@ Rus Codes
 [![Build Status](https://github.com/google/open-location-code/actions/workflows/main.yml/badge.svg?branch=main)](https://github.com/google/open-location-code/actions/workflows/main.yml?query=branch%3Amain)
 [![CDNJS](https://img.shields.io/cdnjs/v/openlocationcode.svg)](https://cdnjs.com/libraries/openlocationcode)
 
-Rus Codes -- это технология, которая позволяет представлять место в форме, которую легче использовать, чем широту и долготу. 
+Rus Codes -- это технология, которая позволяет представлять местоположение в форме, которую легче использовать, чем широту и долготу. 
+
+Rus Codes берет за основу Open Location Code, однако, в отличае от собрата, использует символы, общие для кириллического и латинского алфавитов, что позволяет его с легкостью использовать в странах с кириллицей, как местным жителям, так и иностранцам.  
 
 Технология может быть использована для создания геокодов, заменяющих адреса, особенно в местах, где здания не нумерованы или нет названий улиц.
 
