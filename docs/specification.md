@@ -15,7 +15,7 @@ The following defines the valid characters in an Open Location Code. Sequences t
 Open Location Code symbols have been selected to reduce writing errors and prevent accidentally spelling words.
 Here are the digits, shown with their numerical values:
 
-|Symbol|2|3|4|5|6|7|8|9|C|F|G|H|J|M|P|Q|R|V|W|X|
+|Symbol|1|2|3|4|5|6|7|8|9|A|E|K|M|H|O|P|C|T|Y|X|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |Value|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|
 
