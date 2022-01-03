@@ -1,41 +1,41 @@
-# Open Location Code Specification
+# Спецификация Rus Codes
 
-## Input values
+## Входные данные
 
-Open Location Code encodes two numbers into a single, short string.
+Rus Codes переводит два номера в одну короткую строку.
 
-The latitude and longitude should be WGS84 values. If other datums are used it must be stated and made clear that these will produce different locations if plotted.
+Широта и долгота должны быть в фортмате WGS84. Если используются данные в других форматах, то должно быть установлено и четко сформулировано, что это произведет другие местополжения при построении.
 
-## Character Set
+## Набор символов
 
-The following defines the valid characters in an Open Location Code. Sequences that contain other characters are by definition not valid Open Location Codes.
+Далее определяется набор сиволов, используемых в Rus Codes. Последовательности, которые содержат прочие символы, по определению не могут быть верными Rus Cod-ами.
 
-### Digits
+### Символы
 
-Open Location Code symbols have been selected to reduce writing errors and prevent accidentally spelling words.
-Here are the digits, shown with their numerical values:
+Символы, используемые в Rus Codes были выбраны так, чтобы их можно было использовать как людям использующим латинский алфавит, так и использующим кириллицу, а так же уменьшить вероятность ошибки при написании.
+Ниже приведены символы и их цифровые значения.
 
-|Symbol|1|2|3|4|5|6|7|8|9|A|E|K|M|H|O|P|C|T|Y|X|
+|Символ|1|2|3|4|5|6|7|8|9|A|E|K|M|H|O|P|C|T|Y|X|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|Value|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|
+|Значение|0|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|
 
-### Format Separator
+### Разделитель форматирования
 
-The "+" character (U+002B) is used as a non-significant character to aid formatting.
+Символ "+" (U+002B) используется как незначащий символ для улучшения форматирования.
 
-### Padding Character
+### Добавочный символ
 
-The "0" character (U+0030) is used as a padding character before the format separator.
+Символы "0" (U+0030) используются как добавочные символы перед разделителем форматирования.
 
-## Encoding
+## Кодирование
 
-Code digits and ordering do not change in right-to-left (RTL) languages.
+Символы кода и их порядок не меняются в языках, где письмо происходит справа налево.
 
-The latitude number must be clipped to be in the range -90 to 90.
+Широта должна быть обрезана, чтобы ее значение было в диапазоне от -90 до 90.
 
-The longitude number must be normalised to be in the range -180 to 180.
+Долгота должна быть нормализована, чтобы быть в диапазоне от -180 до 180.
 
-### Most significant 10 digits
+### Наиболее значимые 10 символов
 
 Summary:
 Add 90 to latitude and 180 to longitude to force them into positive ranges.
