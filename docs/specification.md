@@ -37,46 +37,46 @@ Rus Codes переводит два числа в одну короткую ст
 
 ### Наиболее значимые 10 символов
 
-Summary:
-Add 90 to latitude and 180 to longitude to force them into positive ranges.
-Encode both latitude and longitude into base 20, using the symbols above, for five digits each i.e. to a place value of 0.000125.
-Starting with latitude, interleave the digits.
+Резьме:
+Прибавьте 90 к широте и 180 к долготе, чтобы они стали положительными.
+Закодируйте широту и долготу по основанию 20, используя символы выше, 5-тью сиволами каждый, т.е. получив значение размерностью 0.000125.
+Начиная с широты, чередуйте символы.
 
-The following provides an algorithm to encode the values from least significant digit to most significant digit:
-1. Add 90 to the latitude and add 180 to the longitude, multiply both by 8000 and take the integer parts as latitude and longitude respectively
-1. Prefix the existing code with the symbol that has the integer part of longitude modulus 20
-1. Prefix the existing code with the symbol that has the integer part of latitude modulus 20
-1. Divide both longitude and latitude by 20
-1. Repeat from step 2 four more times.
+Ниже приведен алгоритм кодирования значиний начиная от наименее значимых символов до наиболее значимых:
+1. Прибавьте 90 к широте и 180 к долготе, умнождте оба значения на 8000 и возьмите целую часть от широты и долготы соответственно
+1. Приставьте к существующему коду символ, который соответствует целой части широты, взятой по модулю 20 
+1. Приставьте к существующему коду символ, который соответствует целой части долготы, взятой по модулю 20
+1. Разделите обе, широту и долготу на 20
+1. Повторите с шага 2 четырежды
 
-### Least significant five digits
+### Наименее значимые 5 символов
 
-This differs from the above method in that each step produces a single character.
-This encodes latitude into base five and longitude into base four, and then combines the digits for each position together.
+Этот способ отличается от приведенного выше тем, что каждый шаг порождает один символ.
+Широта кодируется по основанию 5 и долгота -- по основанию 4 и затем символы для каждой позиции комбинируются.
 
-The following provides an algorithm to encode the values from least significant digit to most significant digit:
-1. Add 90 to the latiude, multiply the fractional part by 2.5e7 and take the integer part as latitude.
-1. Add 180 to the longitude, multiply the fractional part by 8.192e6 and take the integer part as longitude.
-1. Take the integer part of latitude modulus 5. Multiply that by 4, and add the integer part of the longitude modulus 4.
-1. Prefix the existing code with the symbol with the above value.
-1. Divide longitude by four and latitude by five.
-1. Repeat from step 2 four more times.
+Ниже приведен алгоритм кодирования значений от наименне значимых символов до наиболее значимых:
+1. Прибавьте 90 к широте и умножьте дробную часть на 2.5e7 и возьмите целую часть за широту.
+1. Прибавьте 180 к долготе, умнождте дробную часть на 8.192e6 и возьмите целую часть за долготу.
+1. Возьмите целую часть широты по модулю 5. Умножте полученное значение на 4 и прибавьте целую часть долготы, взятую по модулю 4.
+1. Приставьте к существующему коду символ со значением выше.
+1. Поделите долготу на 4 и широту на 5
+1. Повторите с шага 2 четырежды
 
-### Code length
+### Длина кода
 
-The minimum valid length of an Open Location Code is two digits.
-The maximum length of an Open Location Code is 15 digits.
+Минимально допустимая длина Rus Cod-a -- два символа.
+Максимальная длина Rus Cod-a -- 15 символов.
 
-Below 10 digits, only even numbers are valid lengths.
+Коды, короче 10 символов, допустимы только четной длины.
 
-The default length for most purposes is 10 digits.
+Длина по умолчанию для большинства целей равна 10.
 
-### Formatting
+### Форматирование
 
-The format separator must be inserted after eight digits.
-If the requested code length is fewer than eight digits, the remaining digits before the format separator must consist of the padding character.
+Разделитель форматирования, должен быть вставлен после 8-ми символов.
+Если длина кода меньше 8-ми символов, оставшиеся символы перед разделителем форматирования должны состояить из добавочных символов.
 
-### Code precision
+### Точность кода
 
 The following table gives the precision of the valid code lengths in degrees and in meters. Where the precisions differ between latitude and longitude both are shown:
 
