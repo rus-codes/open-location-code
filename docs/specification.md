@@ -78,39 +78,39 @@ Rus Codes переводит два числа в одну короткую ст
 
 ### Точность кода
 
-The following table gives the precision of the valid code lengths in degrees and in meters. Where the precisions differ between latitude and longitude both are shown:
+Нижеследующая таблица показывает точность длин кодов в градусах и метрах. В местах, где точность различается для широты и долготы, указаны обе.
 
-| Code length | Precision in degrees | Precision        |
+| Длина кода  | Точность в градусах  | Точность         |
 | :---------: | :------------------: | :--------------: |
-| 2           | 20                   | 2226 km          |
-| 4           | 1                    | 111.321 km       |
-| 6           | 1/20                 | 5566 meters      |
-| 8           | 1/400                | 278 meters       |
-| 10          | 1/8000               | 13.9 meters      |
-| 11          | 1/40000 x 1/32000    | 2.8 x 3.5 meters |
-| 12          | 1/200000 x 1/128000  | 56 x 87 cm       |
-| 13          | 1/1e6 x 1/512000     | 11 x 22 cm       |
-| 14          | 1/5e6 x 1/2.048e6    | 2 x 5 cm         |
-| 15          | 1/2.5e7 x 1/8.192e6  | 4 x 14 mm        |
+| 2           | 20                   | 2226 км          |
+| 4           | 1                    | 111.321 км       |
+| 6           | 1/20                 | 5566 метров      |
+| 8           | 1/400                | 278 метров       |
+| 10          | 1/8000               | 13.9 метров      |
+| 11          | 1/40000 x 1/32000    | 2.8 x 3.5 метров |
+| 12          | 1/200000 x 1/128000  | 56 x 87 см       |
+| 13          | 1/1e6 x 1/512000     | 11 x 22 см       |
+| 14          | 1/5e6 x 1/2.048e6    | 2 x 5 см         |
+| 15          | 1/2.5e7 x 1/8.192e6  | 4 x 14 мм        |
 
-NB: This table assumes one degree is 111321 meters, and that all distances are calculated at the equator.
+Эта таблица предполагает, что один градус -- 111321 метр и все расстояния расчитаны на экваторе.
 
-## Decoding
+## Декодирование
 
-The coordinates obtained when decoding are the south-west corner.
-(The north-east corner and center coordinates can be obtained by adding the precison values.)
+Координаты получаются декодированием юго-западного угла.
+(Северо-восточный угол и центр могут быть получены добавлением значений точности)
 
-This implies that the north-east coordinates are not included in the area of the code, with the exception of codes whose northern latitude is 90 degrees.
+Это подразумевает, что северо-востоные координаты не включены в область кода, за исключением кодов, чьи северные широты -- 90 градусов.
 
-## Short Codes
+## Короткие коды
 
-Short codes are used relative to a reference location.
-They allow the code part to be shorter, easier to use and easier to remember.
+Короткие коды используются относительно связанного местоположения.
+Это позволяет коду быть короче, легче в использовании и запомнинании.
 
-Short codes have at least two and a maximum of six digits removed from the beginning of the code.
-The resulting code must include the "+" character (the format separator).
+В коротких кодах убраны как минимум два, а как максимум 6 символов сначала полного кода.
+Результирующий код должен включать символ "+"(разделитель форматирования).
 
-Codes that include padding characters must not be shortened.
+Коды, которые содержат добавочные символы, не должны быть укорочены.
 
 Digits can be removed from the code, until the precision of the position is less than twice the maximum of the latitude or longitude offset between the code center and the reference location.
 Recovery of the original code must meet the same criteria.
