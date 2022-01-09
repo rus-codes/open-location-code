@@ -112,9 +112,10 @@ Rus Codes переводит два числа в одну короткую ст
 
 Коды, которые содержат добавочные символы, не должны быть укорочены.
 
-Digits can be removed from the code, until the precision of the position is less than twice the maximum of the latitude or longitude offset between the code center and the reference location.
-Recovery of the original code must meet the same criteria.
+Символы могут быть удалены из кода, до тех пор пока точность позиции меньше чем в два раза от максимального между широтой и долготой смещения между центром кода и связанным местоположением.
+Восстановление оригинального кода должно соответствовать тем же критериям.
 
+Например, у кода 7АТ98Е7А+5У центр в точке 47.365562,8.524813. Следующая таблица показывает, как код может быть укорочен относительно разных местоположений:
 For example, 8FVC9G8F+6W has the center 47.365562,8.524813. The following table shows what it can be shortened to, relative to various locations:
 
 | Reference Location | Latitude offset | Longitude offset | Twice max offset | Code can be shortened to |
