@@ -117,28 +117,29 @@ Rus Codes переводит два числа в одну короткую ст
 
 Например, у кода 7АТ98Е7А+5У, центр в точке 47.365562,8.524813. Следующая таблица показывает, как код может быть укорочен относительно разных местоположений:
 
-| Reference Location | Latitude offset | Longitude offset | Twice max offset | Code can be shortened to |
+| Связанное местоположение | Сдвиг по широте | Сдвиг по долготе | Двукратный максимальный сдвиг | Код может быть сокрщено до |
 | ------------------ | --------------: | ---------------: | ---------------: | -----------------------: |
-| 47.373313,8.537562 | 0.008           | 0.013            | 0.025            | 8F+6W                    |
-| 47.339563,8.556687 | 0.026           | 0.032            | 0.064            | 9G8F+6W                  |
-| 47.985187,8.440688 | 0.620           | 0.084            | 1.239            | VC9G8F+6W                |
-| 38.800562,-9.064937| 0.620           | 8.565            | 17.590           | 8FVC9G8F+6W              |
+| 47.373313,8.537562 | 0.008           | 0.013            | 0.025            | 7А+5У                    |
+| 47.339563,8.556687 | 0.026           | 0.032            | 0.064            | 8Е7А+5У                  |
+| 47.985187,8.440688 | 0.620           | 0.084            | 1.239            | Т98Е7А+5У                |
+| 38.800562,-9.064937| 0.620           | 8.565            | 17.590           | 7АТ98Е7А+5У              |
 
-Note: A code that has been shortened will not necessarily have the same initial four digits as the reference location.
+Замечение: Сокращенный код, вовсе не обязательно должен иметь те же начальные 4 символа, как и у связанного местоположения.
 
-## Library Implementation Requirements
+## Требования к созданию библиотеки
 
-Open Location Code library implementations must provide:
-* a method to convert a latitude and longitude into a 10 digit Open Location Code
-* a method to decode a 10 digit Open Location Code into, at a minimum, the latitude and longitude of the south-west corner and the height and width
-* a method to determine if a string is a valid sequence of Open Location Code characters
-* a method to determine if a string is a valid full Open Location Code
-* decode and validation methods must not be case-sensitive
+Библиотека Rus Codes должна предоставлять:
+* метод конвертирования широты и долготы в 10-ти значный Rus Code
+* метод декодирования 10-ти значного Rus Cod-a в, как минимум, широту и долготу юго-западного угла и ширину и высоту
+* метод определения того, что в строка содержит допустимые символы Rus Cod-а
+* метод определения того, что в строка -- допустимый полный Rus Code
+* методы декодирования и валидации не должны быть регистрозависимыми
 
-Open Location Code library implementations can provide:
-* a method to convert a latitude and longitude into any valid length Open Location Code
-* a method to decode any valid length Open Location Code, providing additional information such as center coordinates
+Библиотека Rus Codes может предоставлять:
+* метод перевода широты и долготы в корректный Rus Code допустимой длины 
+* метод декодирования любого корректного Rus Cod-a с дополнительной информацией, такой как центральыне координаты
+* метод перевода корректного Rus Cod-a в короткий код, имея связанное местоположение 
 * a method to to convert a valid Open Location Code into a short code, given a reference location
-* a method to recover a full Open Location Code from a short code and a reference location.
-* a method to determine if a string is a valid short Open Location Code
+* метод восстановления полного кода из короткого кода и связанного местоположения
+* метод определения того, что строка -- корректный короткий Rus Code
 
