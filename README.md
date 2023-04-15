@@ -20,6 +20,7 @@ Rus Codes берет за основу Open Location Code, однако, в от
 
 Ссылки
 -----
+ * [Rus Code спецификация](https://github.com/rus-codes/rus-codes/blob/main/docs/specification.md)
  * [Demonstration site](http://plus.codes/)
  * [Mailing list](https://groups.google.com/forum/#!forum/open-location-code)
  * [Comparison of existing location encoding systems](https://github.com/google/open-location-code/wiki/Evaluation-of-Location-Encoding-Systems)
